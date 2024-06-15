@@ -13,6 +13,12 @@ router.get("/products", async (req, res) => {
 });
 
 
+router.get("/realtimeproducts", async (req, res) => {
+    const productos = await baseProducts.consultarProductos();
+    res.render("realTimeProducts", { title: "Productos en tiempo real", productos });
+});
+
+
 /*router.get('/', async (req, res) => {
     const productos = await baseProducts.consultarProductos();
 
