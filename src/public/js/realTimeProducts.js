@@ -7,6 +7,7 @@ const eliminarProducto = (id) => {
 
 //Notificación de producto eliminado a todos los clientes conectados al servidor.
 socket.on("producto-eliminado", (id) => {
+    console.log("Sweet Alert");
     Swal.fire({
         toast: true,
         position: "top-end",
@@ -16,6 +17,7 @@ socket.on("producto-eliminado", (id) => {
         icon: "success",
     });
 });
+
 
 /*
 Swal.fire({
