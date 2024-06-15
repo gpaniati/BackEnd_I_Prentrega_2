@@ -1,5 +1,5 @@
 {
-    "name": "primera-entrega",
+    "name": "segunda-entrega",
     "version": "1.0.0",
     "description": "MI API RESTFUL",
     "main": "server.js",
@@ -13,6 +13,9 @@
     "author": "Gaston Paniati",
     "license": "MIT",
     "dependencies": {
-        "express": "^4.19.2"
+        "express": "^4.19.2",
+        "handlebars": "^4.7.8",
+        "socket.io": "^4.7.5",
+        "sweetalert2": "^11.11.1"
     }
 }
