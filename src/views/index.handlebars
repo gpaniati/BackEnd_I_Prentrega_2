@@ -1,0 +1,27 @@
+<header>
+</header>
+
+<main>
+    <section>
+        <div class="container mt-3">
+            <h1 class="mb-3" style="text-align: center;">Lista de Productos</h1>
+        </div>
+        <div class="row">
+            {{#each productos}}
+            <div class="col-md-3">
+                <div class="card mb-3" style="width: 20rem">
+                    <img src="{{thumbnails}}" class="card-img-top" alt="{{code}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-text"><strong>Precio: ${{price}}</strong></p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>

@@ -2,17 +2,20 @@ import express from "express";
 import paths from "./utils/paths.js";
 import handlebars from "./config/handlebars.config.js";
 import serverSocket from "./config/socket.config.js";
-import homeRouter from "./routes/home.router.js";
+import productsRouter from "./routes/products.router.js"
 /*
 import cartsRouter from "./routes/carts.router.js"
-import productsRouter from "./routes/products.router.js"
+
 */
 const server = express();
 const PORT = 8080;
 const HOST = "localhost";
 
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+
 // Definición de enrutadores
-server.use("/chat", homeRouter);
+server.use("/api", productsRouter);
 
 // Configuración del motor de plantillas
 handlebars.config(server);
@@ -38,37 +41,3 @@ const serverHTTP = server.listen(PORT, () => {
 
 // Configuración del servidor de websocket
 serverSocket.config(serverHTTP);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-
-import cartsRouter from "./routes/carts.router.js"
-import productsRouter from "./routes/products.router.js"
-
-
-
-server.use(express.urlencoded({ extended: true }));
-server.use(express.json());
-
-server.use("/api/products", productsRouter);
-server.use("/api/carts", cartsRouter);
-
-// Método oyente de solicitudes
-server.listen(PORT, () => {
-    console.log(`Ejecutandose en http://${HOST}:${PORT}`);
-});

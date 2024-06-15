@@ -7,7 +7,13 @@ const baseProducts = new ProductManager();
 
 // Endpoint: Método GET que escucha en la URL http://localhost:8080/api/products
 // Listar todos los productos de la base.
-router.get('/', async (req, res) => {
+router.get("/products", async (req, res) => {
+    const productos = await baseProducts.consultarProductos();
+    res.render("index", { title: "Productos", productos });
+});
+
+
+/*router.get('/', async (req, res) => {
     const productos = await baseProducts.consultarProductos();
 
     if (!productos) {
@@ -96,5 +102,6 @@ router.use("*", (req, res) => {
     console.log("Entro a products.router");
     return res.status(404).send("Recurso no encontrado");
 });
+*/
 
 export default router;

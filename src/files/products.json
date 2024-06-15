@@ -8,7 +8,7 @@
         "status": true,
         "stock": 20,
         "category": "cereales",
-        "thumbnails": "/images/modofit_producto_7.png"
+        "thumbnails": "https://i.ibb.co/wdkhyVP/modofit-producto-7.png"
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
         "status": true,
         "stock": 20,
         "category": "mermeladas",
-        "thumbnails": "/images/modofit_producto_11.png"
+        "thumbnails": "https://i.ibb.co/7YgyDtk/modofit-producto-11.png"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "status": true,
         "stock": 20,
         "category": "mermeladas",
-        "thumbnails": "/images/modofit_producto_4.png"
+        "thumbnails": "https://i.ibb.co/f4bffRs/modofit-producto-4.png"
     },
     {
         "id": 4,
@@ -41,7 +41,7 @@
         "status": true,
         "stock": 20,
         "category": "desayuno",
-        "thumbnails": "/images/modofit_producto_12.png"
+        "thumbnails": "https://i.ibb.co/xYKTz6J/modofit-producto-12.png"
     },
     {
         "id": 5,
@@ -52,6 +52,6 @@
         "status": true,
         "stock": 17,
         "category": "bebidas",
-        "thumbnails": "/images/modofit_producto_1.png"
+        "thumbnails": "https://i.ibb.co/qJg7MY0/modofit-producto-1.png"
     }
 ]
