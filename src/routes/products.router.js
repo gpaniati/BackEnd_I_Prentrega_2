@@ -18,8 +18,7 @@ router.get("/realtimeproducts", async (req, res) => {
     res.render("realTimeProducts", { title: "Productos en tiempo real", productos });
 });
 
-
-/*router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
     const productos = await baseProducts.consultarProductos();
 
     if (!productos) {
@@ -108,6 +107,5 @@ router.use("*", (req, res) => {
     console.log("Entro a products.router");
     return res.status(404).send("Recurso no encontrado");
 });
-*/
 
 export default router;

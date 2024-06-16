@@ -16,6 +16,7 @@ server.use(express.json());
 
 // Definición de enrutadores
 server.use("/", productsRouter);
+//server.use("/api/products", productsRouter);
 
 // Configuración del motor de plantillas
 handlebars.config(server);

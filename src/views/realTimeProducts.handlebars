@@ -5,21 +5,8 @@
 </header>
 <main>
     <section>
-        <div class="row">
-            {{#each productos}}
-            <div class="col-md-3">
-                <div class="card mb-3" style="width: 20rem">
-                    <img src="{{thumbnails}}" class="card-img-top" alt="{{code}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{title}}</h5>
-                        <p class="card-text">{{description}}</p>
-                        <p class="card-text"><strong>Precio: ${{price}}</strong></p>
-                        <button type="button" class="btn btn-danger"
-                            onclick="eliminarProducto('{{id}}')">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
+        <div id="card-container" class="row">
+            <!-- Aca se apendean las cartas con los productos -->
         </div>
     </section>
 </main>
