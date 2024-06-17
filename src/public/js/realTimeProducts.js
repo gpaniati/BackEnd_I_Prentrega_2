@@ -4,8 +4,8 @@ const socket = io();
 //Devuelve la estructura html de una Card de Boostrap.
 const crearCarta = (producto) => {
     return (`
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card mb-3" style="width: 20rem">
+            <div class="col-md-4 d-flex justify-content-around">
+                <div class="card mb-4" style="width: 20rem">
                     <img src="${producto.thumbnails}" class="card-img-top" alt="${producto.code}">
                     <div class="card-body">
                         <h5 class="card-title">${producto.title}</h5>
@@ -35,15 +35,12 @@ const eliminarProducto = (id) => {
 }
 
 const crearProducto = () => {
-    console.log("Crear Producto");
-    /*chatText.onkeyup = (event) => {
-    if (event.key === "Enter") {
-        if (chatText.value.trim().length > 0) {
-            socket.emit("message", { user: user, message: chatText.value });
-            chatText.value = "";
+    const entradasFormulario = document.getElementById('form-crearProducto');
+    for (let i = 0; i < entradasFormulario.length; i++) {
+        if (entradasFormulario[i].type !== 'button'){
+            console.log(entradasFormulario[i].value);
         }
     }
-    */
 };
 
 //Notificación de producto eliminado a todos los clientes conectados al servidor.
