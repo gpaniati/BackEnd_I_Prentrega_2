@@ -6,44 +6,47 @@
 <main>
     <section>
         <hr>
+        <div class="container mt-3">
+            <h2 class="mb-3" style="text-align: center;">Carga de Productos</h1>
+        </div>
         <form>
             <div class="form">
                 <div class="form-group col-md-3">
                     <label for="input1">Título</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Título">
+                    <input type="text" class="form-control" id="inputTitulo" placeholder="Título">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="input2">Descripción</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Descripción">
+                    <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripción">
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="input3">Código</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Código">
+                    <input type="text" class="form-control" id="inputCodigo" placeholder="Código">
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="input4">Precio</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Precio">
+                    <input type="text" class="form-control" id="inputPrecio" placeholder="Precio">
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="input5">Stock</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Stock">
+                    <input type="text" class="form-control" id="inputStock" placeholder="Stock">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="input6">Categoría</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Categoría">
+                    <input type="text" class="form-control" id="inputCategoria" placeholder="Categoría">
                 </div>
                 <div class="form-group col-md-3">
-                    <button type="submit" class="btn btn-primary">Crear Producto</button>
+                    <button type="button" class="btn btn-primary" onclick="crearProducto()">CrearProducto</button>
                 </div>
         </form>
         <hr>
         <div class="container mt-3">
             <h2 class="mb-3" style="text-align: center;">Lista de Productos</h1>
         </div>
-        <div id="cards-container" class="row">
+        <div id="cards-container" class="d-flex justify-content-around flex-wrap">
             <!-- Con WebSockets -->
             <!-- Aca se apendean las cartas con los productos -->
         </div>

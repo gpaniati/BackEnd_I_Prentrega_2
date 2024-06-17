@@ -4,7 +4,7 @@ const socket = io();
 //Devuelve la estructura html de una Card de Boostrap.
 const crearCarta = (producto) => {
     return (`
-            <div class="col-md-3">
+            <div class="col-md-3 d-flex justify-content-around">
                 <div class="card mb-3" style="width: 20rem">
                     <img src="${producto.thumbnails}" class="card-img-top" alt="${producto.code}">
                     <div class="card-body">
@@ -34,6 +34,18 @@ const eliminarProducto = (id) => {
     socket.emit("eliminar-producto", id);
 }
 
+const crearProducto = () => {
+    console.log("Crear Producto");
+    /*chatText.onkeyup = (event) => {
+    if (event.key === "Enter") {
+        if (chatText.value.trim().length > 0) {
+            socket.emit("message", { user: user, message: chatText.value });
+            chatText.value = "";
+        }
+    }
+    */
+};
+
 //Notificación de producto eliminado a todos los clientes conectados al servidor.
 //Envio de render a todos los clientes conectados.
 socket.on("producto-eliminado-resto", (id) => {
@@ -62,7 +74,6 @@ socket.on("producto-eliminado-autor", (id) => {
 
 //Renderiza los productos de la base cuando se conecta un cliente.
 socket.on("cliente-conectado", (productos) => {
-    //console.log("hola");
     renderizarProductos(productos);
 });
 
