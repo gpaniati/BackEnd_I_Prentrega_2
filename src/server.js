@@ -2,11 +2,10 @@ import express from "express";
 import paths from "./utils/paths.js";
 import handlebars from "./config/handlebars.config.js";
 import serverSocket from "./config/socket.config.js";
-import productsRouter from "./routes/products.router.js"
-/*
 import cartsRouter from "./routes/carts.router.js"
+import productsRouter from "./routes/products.router.js"
+import viewsRouter from "./routes/views.router.js"
 
-*/
 const server = express();
 const PORT = 8080;
 const HOST = "localhost";
@@ -14,9 +13,12 @@ const HOST = "localhost";
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
-// Definición de enrutadores
-server.use("/", productsRouter);
-//server.use("/api/products", productsRouter);
+// Definición de enrutadores api/prentrega 1.
+server.use("/api/products", productsRouter);
+server.use("/api/carts", cartsRouter);
+
+// Definición de enrutador prentrega 2
+server.use("/", viewsRouter);
 
 // Configuración del motor de plantillas
 handlebars.config(server);
