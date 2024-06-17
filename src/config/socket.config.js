@@ -6,13 +6,14 @@ const baseProducts = new ProductManager();
 const config = (serverHTTP) => {
     const serverSocket = new Server(serverHTTP);
 
-    serverSocket.on("connection", (socket) => {
+    serverSocket.on("connection", async (socket) => {
         console.log("Cliente conectado");
 
-        //const productos =  await baseProducts.consultarProductos()
-        //socket.emit("inicializarProductos", productos);
+        //Obtiene los productos de la base de productos y emite mensaje para renderizar productos del lado del cliente.
+        const productos = await baseProducts.consultarProductos()
+        socket.emit("cliente-conectado", productos);
 
-        //Eliminar producto.
+        //Elimina producto de la base y emite un mensaje a todos los usaurios conectados.
         socket.on("eliminar-producto", ( id ) => {
             baseProducts.eliminarProducto(id);
             socket.broadcast.emit("producto-eliminado", id);

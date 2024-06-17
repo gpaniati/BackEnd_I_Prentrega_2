@@ -91,9 +91,4 @@ router.delete('/:pid', async (req, res) => {
     return res.status(200).send({ status: "success", message: "El producto ha sido eliminado" });
 });
 
-// Método que responde a las URL inexistentes
-router.use("*", (req, res) => {
-    return res.status(404).send("Recurso no encontrado");
-});
-
 export default router;

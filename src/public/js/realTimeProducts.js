@@ -1,9 +1,36 @@
+//Lado del cliente.
 const socket = io();
 
 //Elimina un producto de la base de productos.
 const eliminarProducto = (id) => {
     socket.emit("eliminar-producto", id);
 }
+
+//Devuelve la estructura html de una Card de Boostrap.
+const crearCarta = (producto) => {
+    return (`
+            <div class="col-md-3">
+                <div class="card mb-3" style="width: 20rem">
+                    <img src="${producto.thumbnails}" class="card-img-top" alt="{{code}}">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.title}</h5>
+                        <p class="card-text">${producto.description}</p>
+                        <p class="card-text">Precio: $${producto.price}</p>
+                    </div>
+                </div>
+            </div>
+    `);
+}
+
+//Renderiza los productos en el contenerdor de cartas del layout realTimeProducts.
+const renderizarProductos = (productos) => {
+    //Selecciono el contenedor de la carta del layout realTimeProducts
+    const cardsContainer = document.getElementById('cards-container');
+    productos.forEach( producto => {
+        const cardHTML = crearCarta(producto);
+        cardsContainer.innerHTML += cardHTML;
+    });
+ }
 
 //Notificación de producto eliminado a todos los clientes conectados al servidor.
 socket.on("producto-eliminado", (id) => {
@@ -19,28 +46,11 @@ socket.on("producto-eliminado", (id) => {
 });
 
 //Renderiza los productos de la base cuando se conecta un cliente.
-socket.on("inicializarProductos", (productos) => {
-    console.log(productos[0]);
-    console.log(productos[1]);
-    console.log(productos[2]);
-
+socket.on("cliente-conectado", (productos) => {
+    renderizarProductos(productos);
+});
 
 /*
-    {{#each productos}}
-    <div class="col-md-3">
-        <div class="card mb-3" style="width: 20rem">
-            <img src="{{thumbnails}}" class="card-img-top" alt="{{code}}">
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-text">{{description}}</p>
-                <p class="card-text"><strong>Precio: ${{price}}</strong></p>
-                <button type="button" class="btn btn-danger"
-                    onclick="eliminarProducto('{{id}}')">Eliminar</button>
-            </div>
-        </div>
-    </div>
-    {{/each}}
-
 
 
 
@@ -57,7 +67,6 @@ socket.on("inicializarProductos", (productos) => {
         li.innerHTML = `${message.user.name} dice: <b>${message.message}</b>`;
         messageLogs.append(li);
     });*/
-});
 
 /*
 // Alerta que muestra cuando se ha conectado un nuevo usuario

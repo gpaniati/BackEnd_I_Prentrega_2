@@ -85,12 +85,4 @@ router.post('/:cid/products/:pid', async (req, res) => {
 
 });
 
-/*
-// Método que responde a las URL inexistentes
-router.use("*", (req, res) => {
-    console.log("Entro a carts.router");
-    return res.status(404).send("Recurso no encontrado");
-});
-*/
-
 export default router;
