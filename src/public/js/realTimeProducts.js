@@ -62,6 +62,7 @@ socket.on("producto-eliminado-autor", (id) => {
 
 //Renderiza los productos de la base cuando se conecta un cliente.
 socket.on("cliente-conectado", (productos) => {
+    //console.log("hola");
     renderizarProductos(productos);
 });
 
