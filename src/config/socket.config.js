@@ -14,8 +14,14 @@ const config = (serverHTTP) => {
         socket.emit("cliente-conectado", productos);
 
         //Elimina producto de la base y emite un mensaje a todos los usaurios conectados.
-        socket.on("eliminar-producto", ( id ) => {
-            baseProducts.eliminarProducto(id);
+        socket.on("eliminar-producto", async ( id ) => {
+            await baseProducts.eliminarProducto(id);
+            const productosActualizados = await baseProducts.consultarProductos();
+
+            //Emite mensaje para renderizar productos frente a la eliminacion de uno.
+            socket.emit("base-actualizada", productosActualizados);
+            
+            //Emite mensaje para notoficar al resto de los usuarios que se elimino un producto.
             socket.broadcast.emit("producto-eliminado", id);
         });
     });
