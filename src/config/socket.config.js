@@ -18,10 +18,10 @@ const config = (serverHTTP) => {
             await baseProducts.eliminarProducto(id);
             const productosActualizados = await baseProducts.consultarProductos();
 
-            //Emite mensaje para renderizar productos frente a la eliminacion de uno.
-            socket.emit("base-actualizada", productosActualizados);
-            
-            //Emite mensaje para notoficar al resto de los usuarios que se elimino un producto.
+            //Emite mensaje para renderizar productos frente a la eliminacion de uno todos los clientes conectados incluso el que lo elimino.
+            serverSocket.emit("renderizar-base", productosActualizados);
+
+            //Emite notificacion al resto de los usuarios que se elimino un producto.
             socket.broadcast.emit("producto-eliminado", id);
         });
     });

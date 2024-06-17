@@ -36,8 +36,7 @@ const eliminarProducto = (id) => {
 
 //Notificación de producto eliminado a todos los clientes conectados al servidor.
 //Envio de render a todos los clientes conectados.
-socket.on("producto-eliminado", (id) => {
-    console.log("Sweet Alert");
+socket.on("producto-eliminado-resto", (id) => {
     Swal.fire({
         toast: true,
         position: "top-end",
@@ -48,82 +47,26 @@ socket.on("producto-eliminado", (id) => {
     });
 });
 
+//Notificación de producto eliminado al cliente q lo eliminó.
+socket.on("producto-eliminado-autor", (id) => {
+    Swal.fire({
+        toast: true,
+        position: "top-end",
+        timer: 2000,
+        timeProgressBar: true,
+        title: `Han eliminado el producto ${id} de la base`,
+        icon: "success",
+    });
+});
+
+
 //Renderiza los productos de la base cuando se conecta un cliente.
 socket.on("cliente-conectado", (productos) => {
     renderizarProductos(productos);
 });
 
-//Renderiza los productos de la base frente a una accion de algun cliente sobre la misma.
-socket.on("base-actualizada", (productos) => {
+//Renderiza los productos de la base frente a la accion de algun cliente sobre la misma (Eliminar producto/ Añadir Producto).
+socket.on("renderizar-base", (productos) => {
+    console.log(productos);
     renderizarProductos(productos);
 });
-
-
-/*
-
-
-
-
-    console.log(productos);
-    /*
-    if (!user) return;
-
-    const messageLogs = document.getElementById("message-logs");
-    messageLogs.innerText = "";
-
-    data.messages.forEach((message) => {
-        const li = document.createElement("li");
-        li.innerHTML = `${message.user.name} dice: <b>${message.message}</b>`;
-        messageLogs.append(li);
-    });*/
-
-/*
-// Alerta que muestra cuando se ha conectado un nuevo usuario
-socket.on("message-logs", (data) => {
-    if (!user) return;
-
-    const messageLogs = document.getElementById("message-logs");
-    messageLogs.innerText = "";
-
-    data.messages.forEach((message) => {
-        const li = document.createElement("li");
-        li.innerHTML = `${message.user.name} dice: <b>${message.message}</b>`;
-        messageLogs.append(li);
-    });
-});
-
-
-/*
-Swal.fire({
-    title: "Identificate",
-    input: "text",
-    confirmButtonText: "Ingresar",
-    allowOutsideClick: false,
-    inputValidator: (value) => {
-        return !value && "ingresa tu nombre de usuario";
-    },
-}).then((result) => {
-    user = { name: result.value };
-    userName.innerText = user.name;
-    socket.emit("authenticated", user);
-});
-
-chatText.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-        socket.emit("message", { user, message: chatText.value });
-    }
-});
-
-socket.on("message-logs", (data) => {
-    chatLogs.innerHTML = "";
-
-    data.messages.forEach((item) => {
-        const li = document.createElement("li");
-        li.innerHTML = `${item.user.name} dice: <b>${item.message}</b>`;
-        chatLogs.append(li);
-    });
-});
-
-
-
-*/
