@@ -22,7 +22,7 @@ const config = (serverHTTP) => {
             serverSocket.emit("renderizar-base", productosActualizados);
 
             //Emite notificacion al resto de los usuarios que se elimino un producto.
-            socket.broadcast.emit("producto-eliminado", id);
+            socket.broadcast.emit("producto-eliminado-resto", id);
         });
     });
 };

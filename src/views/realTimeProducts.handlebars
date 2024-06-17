@@ -1,10 +1,48 @@
 <header>
     <div class="container mt-3">
-        <h1 class="mb-3" style="text-align: center;">Lista de Productos</h1>
+        <h1 class="mb-3" style="text-align: center;">Productos</h1>
     </div>
 </header>
 <main>
     <section>
+        <hr>
+        <form>
+            <div class="form">
+                <div class="form-group col-md-3">
+                    <label for="input1">Título</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Título">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="input2">Descripción</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Descripción">
+                </div>
+
+                <div class="form-group col-md-1">
+                    <label for="input3">Código</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Código">
+                </div>
+
+                <div class="form-group col-md-1">
+                    <label for="input4">Precio</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Precio">
+                </div>
+
+                <div class="form-group col-md-1">
+                    <label for="input5">Stock</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Stock">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="input6">Categoría</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Categoría">
+                </div>
+                <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary">Crear Producto</button>
+                </div>
+        </form>
+        <hr>
+        <div class="container mt-3">
+            <h2 class="mb-3" style="text-align: center;">Lista de Productos</h1>
+        </div>
         <div id="cards-container" class="row">
             <!-- Con WebSockets -->
             <!-- Aca se apendean las cartas con los productos -->

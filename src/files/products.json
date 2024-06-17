@@ -33,6 +33,17 @@
         "thumbnails": "https://i.ibb.co/f4bffRs/modofit-producto-4.png"
     },
     {
+        "id": 4,
+        "title": "Galletitas de avena",
+        "description": "Vegano, con stevia. 0% grasas trans",
+        "code": "IDP_012",
+        "price": 400,
+        "status": true,
+        "stock": 20,
+        "category": "desayuno",
+        "thumbnails": "https://i.ibb.co/xYKTz6J/modofit-producto-12.png"
+    },
+    {
         "id": 5,
         "title": "Jugo de arandano",
         "description": "Jugo de arándano con pulpa endulzado con stevia",
