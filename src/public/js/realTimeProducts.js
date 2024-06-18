@@ -120,3 +120,12 @@ socket.on("cliente-conectado", (productos) => {
 socket.on("renderizar-base", (productos) => {
     renderizarProductos(productos);
 });
+
+//Error al realizar alguna accion.
+socket.on("error", (descripcionError, error) => {
+    Swal.fire({
+        icon: "error",
+        title: "Algo salio mal...",
+        text: `descripcionError ${error}`
+    });
+});

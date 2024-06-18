@@ -16,31 +16,40 @@ const config = (serverHTTP) => {
 
         //Elimina producto de la base y emite un mensaje a todos los usuarios conectados.
         socket.on("eliminar-producto", async ( id ) => {
-            await baseProducts.eliminarProducto(id);
-            const productosActualizados = await baseProducts.consultarProductos();
+            try {
+                await baseProducts.eliminarProducto(id);
+                const productosActualizados = await baseProducts.consultarProductos();
 
-            //Emite mensaje para renderizar productos frente a la eliminacion de uno.
-            serverSocket.emit("renderizar-base", productosActualizados);
+                //Emite mensaje para renderizar productos frente a la eliminacion de uno.
+                serverSocket.emit("renderizar-base", productosActualizados);
 
-            //Emite notificación al usuario que eliminó un producto.
-            socket.emit("producto-eliminado-autor");
-            //Emite notificación al resto de los usuarios conectados que se eliminó un producto.
-            socket.broadcast.emit("producto-eliminado-resto", id);
+                //Emite notificación al usuario que eliminó un producto.
+                socket.emit("producto-eliminado-autor");
+                //Emite notificación al resto de los usuarios conectados que se eliminó un producto.
+                socket.broadcast.emit("producto-eliminado-resto", id);
+
+            }catch (error){
+                socket.emit("error", "Error al eliminar producto", error);
+            }
         });
 
 
         //Inserta producto en la de la base y emite un mensaje a todos los usuarios conectados.
         socket.on("crear-producto", async ( producto ) => {
-            //Agrega producto nuevo y lo persiste.
-            const { title, description, code, price, status, stock, category, thumbnails } = producto;
-            await baseProducts.agregarProducto(title, description, code, Number(price), Boolean(status), Number(stock), category, thumbnails);
+            try {
+                //Agrega producto nuevo y lo persiste.
+                const { title, description, code, price, status, stock, category, thumbnails } = producto;
+                await baseProducts.agregarProducto(title, description, code, Number(price), Boolean(status), Number(stock), category, thumbnails);
 
-            //Emite mensaje para renderizar productos frente a la creacion uno nuevo.
-            const productosActualizados = await baseProducts.consultarProductos();
-            serverSocket.emit("renderizar-base", productosActualizados);
+                //Emite mensaje para renderizar productos frente a la creacion uno nuevo.
+                const productosActualizados = await baseProducts.consultarProductos();
+                serverSocket.emit("renderizar-base", productosActualizados);
 
-            //Emite notificación al usuario que creó el producto correctamente.
-            socket.emit("producto-creado-autor");
+                //Emite notificación al usuario que creó el producto correctamente.
+                socket.emit("producto-creado-autor");
+            }catch (error){
+                socket.emit("error", "Error al crear", error);
+            }
         });
     });
 };
