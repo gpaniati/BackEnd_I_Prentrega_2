@@ -11,17 +11,6 @@
 		"thumbnails": "https://i.ibb.co/wdkhyVP/modofit-producto-7.png"
 	},
 	{
-		"id": 2,
-		"title": "Mermelada de ciruela",
-		"description": "Mermelada dietética sin azúcar endulzada con stevia",
-		"code": "IDP_011",
-		"price": 990,
-		"status": true,
-		"stock": 20,
-		"category": "mermeladas",
-		"thumbnails": "https://i.ibb.co/7YgyDtk/modofit-producto-11.png"
-	},
-	{
 		"id": 3,
 		"title": "Mermelada de frutos rojos",
 		"description": "Mermelada dietética sin azúcar",
@@ -64,16 +53,5 @@
 		"stock": 17,
 		"category": "mermeladas",
 		"thumbnails": "https://i.ibb.co/bJCPzN8/modofit-producto-8.png"
-	},
-	{
-		"id": 7,
-		"title": "Tostadas de arroz",
-		"description": "Tostadas sin tacc, bajas en grasas con semillas",
-		"code": "IDP_005",
-		"price": 350,
-		"status": true,
-		"stock": 17,
-		"category": "mermeladas",
-		"thumbnails": "https://i.ibb.co/HpQF6Wk/modofit-producto-5.png"
 	}
 ]
